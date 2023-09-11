@@ -12,6 +12,6 @@ const { checkAuth } = require('../middleware/auth');
  *       200:
  *         description: Lista de usuarios obtenida exitosamente
  */
-router.get('/subjects', checkAuth,  getSubjectController);
+router.get('/subjects',  getSubjectController);
 
 module.exports = router;

@@ -10,8 +10,7 @@ const getUser = async () => {
       id: row.id,
       name: row.name,
       lastname: row.lastname,
-      code: row.code,
-      username: row.username,
+      code: row.code
     }));
     return usersJson;
   } catch (e) {
