@@ -7,13 +7,12 @@ const pgConfig = {
         user: 'vms',
         password: 'btQYcc9x61yN3J6DNCT5FJc0Zg0WcCos',
         database: 'prueba_zilg',
-        ssl: { rejectUnauthorized: true}
+        ssl: { rejectUnauthorized: false}
+    },
+    migrations: {
+      directory: '../db/migrations'
     }
   },
-
-  migrations: {
-    directory: '../db/migrations'
-  }
 };
 
 module.exports = pgConfig;
