@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "jest",
+    "cypress": "cypress open",
     "start": "concurrently \"npm run dev\" \"npm run json-server\"",
     "build": "tsc && vite build",
     "json-server": "json-server --watch db.json --port 5000",
@@ -18,6 +19,7 @@
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.5",
     "axios": "^1.5.0",
+    "cypress": "^13.2.0",
     "jest-environment-jsdom": "^29.6.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -17,8 +17,8 @@ const Calculadora = () => {
 
     const evaluate = () =>{
         try {
-            const result = eval(input);
-            setRespuesta(result);
+            const result = Math.round(eval(input)*100)/100;
+            setRespuesta(`${result}`);
         } catch (e) {
             setError('ERROR: Sintaxis incorrecta')
         }
