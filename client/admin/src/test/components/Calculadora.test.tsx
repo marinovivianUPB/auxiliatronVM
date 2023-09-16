@@ -3,60 +3,72 @@ import Calculadora from '../../components/Calculadora';
 
 test("Sumar dos enteros positivos y mostrar el resultado", () =>{
     render(<Calculadora/>);
-    const primerNumero = screen.getAllByPlaceholderText("Ingrese un número")[0];
-    const segundoNumero = screen.getAllByPlaceholderText("Ingrese un número")[1];
-    const boton = screen.getByText("Sumar");
-    fireEvent.change(primerNumero, {target:{value:'300'}});
-    fireEvent.change(segundoNumero, {target:{value:'123'}});
-    fireEvent.click(boton);
-    const respuesta = screen.getByText('Resultado: 423');
+    const mas = screen.getByText("+");
+    const igual = screen.getByText("=");
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(mas);
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(screen.getByText("4"));
+    fireEvent.click(igual);
+    const respuesta = screen.getByText('26');
     expect(respuesta).toBeTruthy();
 });
 
-test("Sumar dos enteros negativos y mostrar el resultado", () =>{
+test("No poner caracteres especiales juntos", () =>{
     render(<Calculadora/>);
-    const primerNumero = screen.getAllByPlaceholderText("Ingrese un número")[0];
-    const segundoNumero = screen.getAllByPlaceholderText("Ingrese un número")[1];
-    const boton = screen.getByText("Sumar");
-    fireEvent.change(primerNumero, {target:{value:'-300'}});
-    fireEvent.change(segundoNumero, {target:{value:'-123'}});
-    fireEvent.click(boton);
-    const respuesta = screen.getByText('Resultado: -423');
+    const mas = screen.getByText("+");
+    const punto = screen.getByText(".");
+    fireEvent.click(mas);
+    fireEvent.click(punto);
+    const respuesta = screen.getByText('ERROR: Operacion no valida');
     expect(respuesta).toBeTruthy();
 });
 
-test("Sumar un entero positivo y uno negativo y mostrar el resultado", () =>{
+test("No permitir errores de sintaxis", () =>{
     render(<Calculadora/>);
-    const primerNumero = screen.getAllByPlaceholderText("Ingrese un número")[0];
-    const segundoNumero = screen.getAllByPlaceholderText("Ingrese un número")[1];
-    const boton = screen.getByText("Sumar");
-    fireEvent.change(primerNumero, {target:{value:'-300'}});
-    fireEvent.change(segundoNumero, {target:{value:'100'}});
-    fireEvent.click(boton);
-    const respuesta = screen.getByText('Resultado: -200');
+    const mas = screen.getByText("+");
+    const punto = screen.getByText(".");
+    const igual = screen.getByText("=");
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(punto);
+    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(punto);
+    fireEvent.click(mas);
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(screen.getByText("4"));
+    fireEvent.click(igual);
+    const respuesta = screen.getByText('ERROR: Sintaxis incorrecta');
     expect(respuesta).toBeTruthy();
 });
 
-test("Sumar un decimal negativo con un entero positivo y mostrar resultado", () =>{
+test("Respuestas negativas", () =>{
     render(<Calculadora/>);
-    const primerNumero = screen.getAllByPlaceholderText("Ingrese un número")[0];
-    const segundoNumero = screen.getAllByPlaceholderText("Ingrese un número")[1];
-    const boton = screen.getByText("Sumar");
-    fireEvent.change(primerNumero, {target:{value:'-300.20'}});
-    fireEvent.change(segundoNumero, {target:{value:'100'}});
-    fireEvent.click(boton);
-    const respuesta = screen.getByText('Resultado: -200.2');
+    const menos = screen.getByText("-");
+    const igual = screen.getByText("=");
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(menos);
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(screen.getByText("4"));
+    fireEvent.click(igual);
+    const respuesta = screen.getByText('-2');
     expect(respuesta).toBeTruthy();
 });
 
-test("Sumar dos e's y mostrar error", () =>{
+test("Suma de decimales", () =>{
     render(<Calculadora/>);
-    const primerNumero = screen.getAllByPlaceholderText("Ingrese un número")[0];
-    const segundoNumero = screen.getAllByPlaceholderText("Ingrese un número")[1];
-    const boton = screen.getByText("Sumar");
-    fireEvent.change(primerNumero, {target:{value:'e'}});
-    fireEvent.change(segundoNumero, {target:{value:'e'}});
-    fireEvent.click(boton);
-    const respuesta = screen.getByText('ERROR: No se ingresaron números válidos');
+    const mas = screen.getByText("+");
+    const igual = screen.getByText("=");
+    const punto = screen.getByText(".");
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(punto);
+    fireEvent.click(screen.getByText("2"));
+    fireEvent.click(mas);
+    fireEvent.click(screen.getByText("1"));
+    fireEvent.click(punto);
+    fireEvent.click(screen.getByText("4"));
+    fireEvent.click(igual);
+    const respuesta = screen.getByText('2.6');
     expect(respuesta).toBeTruthy();
 });
