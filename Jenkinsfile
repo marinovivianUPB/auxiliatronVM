@@ -21,10 +21,10 @@ pipeline {
         }
         stage('Test e2e') {
             parallel {
-                steps {
+                stage('True e2e') {
                     sh 'cd client/admin && npm run e2e'
                 }
-                steps {
+                stage('Run Project') {
                     sh 'cd client/admin && npm run dev'
                 }
             }
