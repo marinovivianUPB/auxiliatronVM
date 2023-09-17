@@ -27,72 +27,73 @@ const Calculadora = () => {
     const del = () =>{
         setInput('')
         setError('')
+        setRespuesta('')
     }
 
     return (
         <>
         <div style={{gap:'1.5em', display:'flex', width:'100%', height:'80%', background:'grey', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'1.25em'}}>
             <h1 style={{fontSize:'2em'}}>Calculadora</h1>
-            <div style={{gap:'1em',display:'flex', width:'100%', height:'100%', background:'white', alignItems:'center', justifyContent:'right'}}>
+            <div id='input' style={{gap:'1em',display:'flex', width:'100%', height:'100%', background:'white', alignItems:'center', justifyContent:'right', color:'black'}}>
                 <p>{input}</p>
             </div>
-            <div style={{gap:'1em',display:'flex', width:'100%', height:'100%', background:'white', alignItems:'center', justifyContent:'right'}}>
+            <div id='output' style={{gap:'1em',display:'flex', width:'100%', height:'100%', background:'white', alignItems:'center', justifyContent:'right', color:'black'}}>
                 <p>{respuesta}</p>
             </div>
             <p>{error}</p>
             <div style={{display:"flex", flexDirection:"column", width:'100%', alignItems:'center', justifyContent:'center'}}>
-                <div style={{display:"flex", flexDirection:"row", width:'100%', alignItems:'center', justifyContent:'center'}}>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('+')}>
+                <div  style={{display:"flex", flexDirection:"row", width:'100%', alignItems:'center', justifyContent:'center'}}>
+                    <button id='mas' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('+')}>
                         +
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('-')}>
+                    <button id='menos' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('-')}>
                         -
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={evaluate}>
+                    <button id='igual' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={evaluate}>
                         =
                     </button>
                 </div>
                 <div style={{display:"flex", flexDirection:"row", width:'100%', alignItems:'center', justifyContent:'center'}}>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('1')}>
+                    <button id='1' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('1')}>
                         1
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('2')}>
+                    <button id='2' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('2')}>
                         2
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('3')}>
+                    <button id='3' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('3')}>
                         3
                     </button>
                 </div>
                 <div style={{display:"flex", flexDirection:"row", width:'100%',alignItems:'center', justifyContent:'center'}}>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('4')}>
+                    <button id='4' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('4')}>
                         4
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('5')}>
+                    <button id='5' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('5')}>
                         5
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('6')}>
+                    <button id='6' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('6')}>
                         6
                     </button>
                 </div>
                 <div style={{display:"flex", flexDirection:"row", width:'100%',alignItems:'center', justifyContent:'center'}}>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('7')}>
+                    <button id='7' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('7')}>
                         7
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('8')}>
+                    <button id='8' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('8')}>
                         8
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('9')}>
+                    <button id='9' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('9')}>
                         9
                     </button>
                 </div>
                 <div style={{display:"flex", flexDirection:"row", width:'100%',alignItems:'center', justifyContent:'center'}}>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={del}>
+                    <button id='C' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={del}>
                         C
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('0')}>
+                    <button id='0' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('0')}>
                         0
                     </button>
-                    <button style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('.')}>
+                    <button id='punto' style={{display:'flex', width:'30%', background:'black', flexDirection:'column', alignItems:'center', justifyContent:'center', color:'white'}} onClick={() => add('.')}>
                         .
                     </button>
                 </div>
