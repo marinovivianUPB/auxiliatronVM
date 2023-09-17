@@ -28,6 +28,6 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-        }
-    }
+        }
+    }
 }
