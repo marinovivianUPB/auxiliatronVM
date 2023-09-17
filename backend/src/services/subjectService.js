@@ -1,6 +1,7 @@
 const subjectRepository = require("../repositories/subjectRepository");
 const logger = require('../utils/logger');
 
+<<<<<<< HEAD
 const getSubjectService = async () => {
   try {
     logger.info("getSubjectService - Fetching subjects from the database"); 
@@ -9,10 +10,21 @@ const getSubjectService = async () => {
     return subjects;
   } catch (error) {
     logger.error("getSubjectService - Error fetching subjects: ", error); // Agregar log en caso de error
+=======
+const getSubjectsService = async () => {
+  try {
+    logger.info("getSubjectsService - Fetching subjects from the database"); 
+    const subjects = await subjectRepository.getSubjects();
+    logger.info("getSubjectsService - Subjects fetched successfully!");
+    return subjects;
+  } catch (error) {
+    logger.error("getSubjectsService - Error fetching subjects: ", error);
+>>>>>>> develop
     throw error;
   }
 };
 
+<<<<<<< HEAD
 const getSubjectByIDService = async (id) => {
   try {
     logger.info("getSubjectByIDService - Fetching subjects from the database"); 
@@ -63,3 +75,19 @@ const deleteSubjectService = async (id) => {
 
 module.exports =  {getSubjectService, getSubjectByIDService, postSubjectService
 ,updateSubjectService, deleteSubjectService};
+=======
+const getSubjectsByIdService = async (id) => {
+    try {
+      logger.info(`getSubjectsByIdService - Fetching subject by id from the database ${id}`); 
+      const subject = await subjectRepository.getSubjectById(id);
+      logger.info("getSubjectsByIdService - Subject fetched successfully!");
+      return subject;
+    } catch (error) {
+      logger.error(`getSubjectsByIdService - Error fetching subject by id: ${id}`, error);
+      throw error;
+    }
+};
+
+module.exports =  getSubjectsService;
+module.exports =  getSubjectsByIdService;
+>>>>>>> develop

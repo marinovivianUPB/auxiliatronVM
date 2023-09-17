@@ -4,7 +4,14 @@ const getUserController = require('../controllers/userController');
 const {getSubjectController, getSubjectByIDController, postSubjectController,
 putSubjectController, deleteSubjectController} = require('../controllers/subjectController');
 const { checkAuth } = require('../middleware/auth');
-
+// TODO: como crear un archivo index.js
+const {
+    getSubjectController,
+    getSubjectByIdController,
+    postSubjectController,
+    putSubjectController,
+    deleteSubjectController
+} = require('../controllers/subjectController');
 /**
  * @swagger
  * openapi: 3.0.0
@@ -97,10 +104,33 @@ const { checkAuth } = require('../middleware/auth');
  *         '200':
  *           description: Subject deleted succesfully! 
  */
+<<<<<<< HEAD
 router.get('/user',  getUserController);
 router.get('/subjects',  getSubjectController);
 router.get(`/subjects/:id`,  getSubjectByIDController);
 router.post('/subjects', postSubjectController);
 router.put('/subjects/:id', putSubjectController);
 router.delete('/subjects/:id', deleteSubjectController);
+=======
+router.get('/user', checkAuth,  getUserController);
+
+
+const SUBJECT_ROUTE = '/subjects';
+
+// GET /subjects
+router.get(SUBJECT_ROUTE,  getSubjectController);
+
+// GET /subjects/{id}:
+router.get(`${SUBJECT_ROUTE}/:id`,  getSubjectByIdController);
+
+// POST /subjects 
+router.post(SUBJECT_ROUTE,  postSubjectController);
+
+// PUT /subjects/{id}:
+router.put(`${SUBJECT_ROUTE}/:id`,  putSubjectController);
+
+// DELETE /subjects/{id}:
+router.delete(SUBJECT_ROUTE,  deleteSubjectController);
+
+>>>>>>> develop
 module.exports = router;

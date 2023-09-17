@@ -8,7 +8,11 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.text('description').notNullable();
         table.integer('credits').notNullable();
+<<<<<<< HEAD
         table.text('professor').notNullable();
+=======
+        table.string('professor').notNullable();
+>>>>>>> develop
         table.timestamps(true, true);
       });
 };

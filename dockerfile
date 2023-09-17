@@ -8,4 +8,8 @@ RUN apt-get update && apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libno
 
 USER jenkins
 
+<<<<<<< HEAD
 # Resto de las configuraciones de Jenkins, si es necesario
+=======
+# Resto de las configuraciones de Jenkins, si es necesario
+>>>>>>> develop
