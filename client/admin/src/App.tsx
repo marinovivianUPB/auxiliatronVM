@@ -1,6 +1,4 @@
 import "./App.css";
-import Component from "./components/TitleCard";
-import Pokedeck from './components/Pokedeck';
 import Calculadora from "./components/Calculadora";
 function App() {
   return (
